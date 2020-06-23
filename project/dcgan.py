@@ -183,12 +183,12 @@ class Generator(nn.Module):
         z (torch.Tensor):
             Noise vector.
             But in practice, this must be given as 1x1 pixel images with self.z_dim channels.
-            So z must be a 4D tensor in shape (n_batch, self.z_dim, 1, 1).
+            So z must be a fourth tensor in shape (n_batch, self.z_dim, 1, 1).
 
         outputs
         -------
         out (torch.Tensor):
-            4D tensor for output image(s), in shape (n_batch, 1, 256, 256).
+            Fourth tensor for output image(s), in shape (n_batch, 1, 256, 256).
         """
         out = self.layer1(z)
         out = self.layer2(out)
@@ -215,7 +215,7 @@ class Generator(nn.Module):
         outputs
         -------
         out (torch.Tensor):
-            4D tensor for output image(s), in shape (n, 1, 256, 256).
+            Fourth tensor for output image(s), in shape (n, 1, 256, 256).
         """
         input_z = torch.randn(n, self.z_dim).unsqueeze(-1).unsqueeze(-1)
         
@@ -298,7 +298,7 @@ class Discriminator(nn.Module):
         inputs
         ------
         img (torch.Tensor):
-            4D tensor for gray scale images, in size (n_batch, 1, 256, 256).
+            Fourth tensor for gray scale images, in size (n_batch, 1, 256, 256).
 
         outputs
         ------
